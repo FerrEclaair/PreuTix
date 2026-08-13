@@ -1,0 +1,196 @@
+/*
+ * PreuTix Shared Theme
+ * Satu sumber warna & komponen supaya semua halaman senada.
+ * Identitas asli dipertahankan: merah (#FF0000) + biru (#0000FF / #1E40AF).
+ * Link file ini di <head> SETIAP halaman, setelah Font Awesome:
+ *   <link rel="stylesheet" href="assets/css/theme.css">
+ */
+
+:root {
+    --pt-red: #FF0000;
+    --pt-red-dark: #C40000;
+    --pt-blue: #0000FF;
+    --pt-blue-dark: #1E40AF;
+    --pt-blue-mid: #0066ff;
+    --pt-black: #000000;
+    --pt-ink: #111111;
+    --pt-text: #333333;
+    --pt-muted: #666666;
+    --pt-border: #e4e6ec;
+    --pt-bg: #fafafa;
+    --pt-bg-alt: #f5f6fa;
+
+    --pt-gradient-brand: linear-gradient(120deg, var(--pt-red), var(--pt-blue-mid));
+    --pt-gradient-header: linear-gradient(135deg, #000000, #1E40AF);
+    --pt-gradient-blue: linear-gradient(135deg, var(--pt-blue-mid), #000000);
+
+    --pt-radius-sm: 8px;
+    --pt-radius-md: 12px;
+    --pt-radius-lg: 18px;
+    --pt-radius-pill: 999px;
+
+    --pt-shadow-sm: 0 2px 8px rgba(15, 15, 25, 0.06);
+    --pt-shadow-md: 0 8px 24px rgba(15, 15, 25, 0.10);
+    --pt-shadow-lg: 0 16px 40px rgba(15, 15, 25, 0.16);
+
+    --pt-transition: all 0.25s ease;
+}
+
+/* ===== Section headings, used across every page ===== */
+.pt-section-title {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 800;
+    color: var(--pt-ink);
+    text-align: center;
+    position: relative;
+    margin-bottom: 14px;
+}
+
+.pt-section-title::after {
+    content: '';
+    display: block;
+    width: 64px;
+    height: 4px;
+    margin: 14px auto 0;
+    border-radius: var(--pt-radius-pill);
+    background: var(--pt-gradient-brand);
+}
+
+.pt-section-subtitle {
+    text-align: center;
+    color: var(--pt-muted);
+    max-width: 560px;
+    margin: 0 auto 40px;
+    font-size: 0.95rem;
+}
+
+/* ===== Buttons ===== */
+.pt-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 26px;
+    border-radius: var(--pt-radius-sm);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: var(--pt-transition);
+}
+
+.pt-btn-primary {
+    color: #fff;
+    background: var(--pt-gradient-brand);
+    background-size: 200% auto;
+    box-shadow: var(--pt-shadow-sm);
+}
+
+.pt-btn-primary:hover {
+    background-position: right center;
+    transform: translateY(-2px);
+    box-shadow: var(--pt-shadow-md);
+}
+
+.pt-btn-outline {
+    color: var(--pt-blue-mid);
+    background: transparent;
+    border: 2px solid var(--pt-blue-mid);
+}
+
+.pt-btn-outline:hover {
+    background: var(--pt-blue-mid);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.pt-btn-dark {
+    color: #fff;
+    background: var(--pt-gradient-blue);
+    box-shadow: var(--pt-shadow-sm);
+}
+
+.pt-btn-dark:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--pt-shadow-md);
+}
+
+/* ===== Cards ===== */
+.pt-card {
+    background: #fff;
+    border-radius: var(--pt-radius-md);
+    box-shadow: var(--pt-shadow-sm);
+    transition: var(--pt-transition);
+    overflow: hidden;
+}
+
+.pt-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--pt-shadow-lg);
+}
+
+.pt-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    border-radius: var(--pt-radius-pill);
+    background: rgba(0, 0, 255, 0.08);
+    color: var(--pt-blue-mid);
+}
+
+.pt-badge-red {
+    background: rgba(255, 0, 0, 0.08);
+    color: var(--pt-red);
+}
+
+/* ===== Form fields (registration, ticket, advertise, etc.) ===== */
+.pt-field-input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: var(--pt-radius-sm);
+    border: 1.5px solid var(--pt-border);
+    background: #fafbfd;
+    font-size: 14.5px;
+    outline: none;
+    transition: var(--pt-transition);
+}
+
+.pt-field-input:focus {
+    border-color: var(--pt-blue-mid);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.12);
+}
+
+/* ===== Alerts ===== */
+.pt-alert {
+    font-size: 13.5px;
+    padding: 10px 14px;
+    border-radius: var(--pt-radius-sm);
+    margin-bottom: 12px;
+}
+
+.pt-alert-error { color: #b3261e; background: #fdecea; }
+.pt-alert-success { color: #1e7d34; background: #e9f7ec; }
+
+/* ===== Generic hero backdrop used on inner pages (Events, Ticket, History, Advertise) ===== */
+.pt-page-hero {
+    background: var(--pt-gradient-header);
+    color: #fff;
+    padding: 48px 0;
+    text-align: center;
+}
+
+.pt-page-hero h1 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.pt-page-hero p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+}
